@@ -1,0 +1,178 @@
+#include <iostream>
+#include <windows.h>
+#include <string>
+using namespace std;
+
+class TV_izgotovitel
+{
+private:
+	string brand;
+	string country;
+
+public:
+	void SetBrand(/*const TV_izgotovitel*/string brand) {
+		this->brand = brand;
+	}
+	string GetBrand(/*const TV_izgotovitel* this, */) const {
+		return brand;
+	}
+	void SetCountry(string country) {
+		this->country = country;
+	}
+	
+	string GetCountry() const {
+		return country;
+	}
+};
+
+class TV_about
+{
+private:
+	string model;
+	string color;
+	string version;
+	double rating;
+
+public:
+	void SetModel(string model) {
+		this->model = model;
+	}
+	string GetModel() const{
+		return model;
+	}
+	void SetColor(string color) {
+		this->color = color;
+	}
+	string GetColor() const {
+		return color;
+	}
+	void SetVersion(string version) {
+		this->version = version;
+	}
+	string GetVersion() const {
+		return version;
+	}
+	void SetRating(double rating) {
+		this->rating = rating;
+	}
+	double GetRating() const {
+		return rating;
+	}
+};
+
+class TV_ekran {
+
+private:
+	int diagonal;
+	string type;
+public:
+	void SetDiagonal(int diagonal) {
+		this->diagonal = diagonal;
+	}
+	int GetDiagonal() const {
+		return diagonal;
+	}
+	void SetType(string type) {
+		this->type = type;
+	}
+	string GetType() const {
+		return type;
+	}
+};
+
+class TV_productivnost {
+
+private:
+	double OZP;
+	int memory;
+public:
+	void SetOZP(double OZP)
+	{
+		this->OZP = OZP;
+	}
+	double GetOZP() const {
+		return OZP;
+	}
+	void SetMemory(int memory)
+	{
+		this->memory = memory;
+	}
+	int GetMemory() const {
+		return memory;
+	}
+};
+
+class TV_stoimost {
+
+public:
+	double price;
+	double discount;
+	double rassrochka;
+
+	void SetPrice(double price)
+	{
+		this->price = price;
+	}
+	double GetPrice() const {
+		return price;
+	}
+	void SetDiscount(double discount)
+	{
+		this->discount = discount;
+	}
+	double GetDiscount() const {
+		return discount;
+	}
+	void SetRassrochka(double rassrochka)
+	{
+		this->rassrochka = rassrochka;
+	}
+	double GetRassrochka() const {
+		return rassrochka;
+	}
+};
+
+int main()
+{
+	setlocale(0, "");
+
+	TV_izgotovitel ii;
+	/*
+	string brand;
+	string country;
+	*/
+	ii.SetBrand("Bosh");
+
+	TV_izgotovitel i;
+	i.SetBrand("Xiaomi");
+	i.SetCountry("China");
+	cout << "Описание телевизора: \n\n" << "Бренд: " << i.GetBrand() << "\n";
+	//cout << "Бренд: " << ii.GetBrand() << "\n";
+	cout << "Страна: " << i.GetCountry() << "\n";
+
+	TV_about a;
+	a.SetModel("A2 32");
+	a.SetColor("Black");
+	a.SetVersion("Android 10");
+	a.SetRating(4.7);
+	cout << "Модель: " << a.GetModel() << "\n"
+		<< "Цвет: " <<  a.GetColor() << "\n" << "Версия: " << a.GetVersion()
+		<< "\n" << "Рейтинг: " << a.GetRating() << "\n";
+
+	TV_ekran e;
+	e.SetDiagonal(32);
+	e.SetType("LED");
+	cout << "Диагональ: " << e.GetDiagonal() << "''\n" << "Тип: " << e.GetType() << "\n";
+
+	TV_productivnost p;
+	p.SetOZP(1.5);
+	p.SetMemory(8);
+	cout << "ОПЗ: " << p.GetOZP() << " ГБ\n" << "Память: " << p.GetMemory()<< " ГБ\n";
+
+	TV_stoimost s;
+	s.SetPrice(7999);
+	s.SetDiscount(7499);
+	s.SetRassrochka(1199);
+	cout << "Цена без скидки: " << s.GetPrice() << " грн\n" << "Цена со скидкой: " << s.GetDiscount() << " грн\n"
+		<< "Платеж в месяц (в рассрочку): " << s.GetRassrochka() << " грн\n";
+}
